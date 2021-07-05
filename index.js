@@ -1,20 +1,19 @@
 // ============== 🌺 NODE - MYBLOG 🌺 ===============
 
-// https://github.com/stillmattwest/node_lessons_2021/blob/master/basic_concepts.md
-// RAW NODE
+// https://github.com/stillmattwest/node_lessons_2021/blob/master/npm_and_express.md
+// NPM - EXPRESS
 
-const http = require("http");
+const express = require('express');
+const app = express();
 const port = 3000;
 
-http 
-  .createServer((req, res) => {
-    res.writeHead(200, {
-      "Content-Type": "text/html" 
-    });
-    res.write(`req.url: ${req.url}`);
-    res.end("hello World!");
-  })
-  .listen(3000, console.log(`Listening on port ${port}`));
+app.use(express.static(__dirname + "/public"));
+
+app.get("/home", (req, res) => res.sendFile(__dirname + "/public/home.html"));
+
+app.get("/", (req, res) => res.send("Hello Express!"));
+
+app.listen(port, () => console.log(`Listening on port #{port}.`));
 
 
 
