@@ -1,12 +1,13 @@
 
-// -------- 💠 CREATE THE MODULE --------
-
-const myFirstModel = require('../models/myFirstModel');
+// -------- 💠 CONTROLLER --------
 
 // The controller does three things in the MVC Pattern:
   // 1. Receive user requests.
   // 2. Call the defined model to get the user requested data.
   // 3. Send a response to the user.
+
+// REQUIRE 'myFirstModel' so the controller can call user requests.
+const myFirstModel = require('../models/myFirstModel');
 
 // 🔰 🔸'EXPORTS' creates the MODULE
 // This way of coding 'exports' allow us to export multiple controllers from the same file.
