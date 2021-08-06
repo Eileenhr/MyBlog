@@ -6,14 +6,28 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const morgan = require('morgan');
 
-app.use(express.static(__dirname + "/public"));
+app.use(morgan('dev'));
 
-app.get("/home", (req, res) => res.sendFile(__dirname + "/public/home.html"));
+app.use(express.static(__dirname + "/public")); // '__dirname' is always equal to the directory of the current file
 
-app.get("/", (req, res) => res.send("Hello Express!"));
+app.use((req, res, next) => {
+  console.log("hello");
+  next();   // next() continues the process through the code stack
+})
 
-app.listen(port, () => console.log(`Listening on port #{port}.`));
+app.get("/home", (req, res) => {
+  res.sendFile(__dirname + "/public/home.html")
+});
+
+app.get("/", (req, res) => {
+  res.send("Hello Express!")
+});
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}.`)
+});
 
 
 

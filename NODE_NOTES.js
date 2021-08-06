@@ -1,7 +1,18 @@
 // ============== 🌺 NODE - MYBLOG 🌺 ===============
-// https://github.com/stillmattwest/node_lessons_2021
+
+// 💠 PRACTICE FROM 'test.js'
+
+   // console.log('Hello Node');
+
+   // function greeting(name) {
+   //   return `Hello ${name}, you have executed a function inNode.js`
+   // }
+   // console.log(greeting('Matt'));
+   
 
 //--------------------- 🟨 RAW NODE 🟨 -----------------------
+// https://github.com/stillmattwest/node_lessons_2021
+
 /* 
  🔸BASIC CONCEPTS: https://github.com/stillmattwest/node_lessons_2021/blob/master/basic_concepts.md
     NODE REF: https://nodejs.org/en/docs
@@ -48,6 +59,8 @@
   * Add README
   * Add .gitignore (select 'Node')
   * No license necessary for this.
+ 
+ - In TERMINAL run 📍git init
 
  - In main directory in VSCode TERMINAL, GIT CLONE REPOSITORY to directory:
  - 📍git clone https://github.com/Eileenhr/MyBlog  
@@ -96,7 +109,7 @@
 
  - 📍NPM START
    >> Add to package.json 'SCRIPTS' to run APP via NODEMON: 📍"start": "nodemon index.js"
-   💥NOW START THE APP via 📍npm start
+   💥💥💥 NOW START THE APP via 📍npm start 💥💥💥
      --With the 'start' code in package.json, the APP will continue to run automatically via nodemon.
 
 ----- 🔰 STATIC FILES -----
@@ -142,5 +155,38 @@ NOTE ON __DIRNAME:  (Double underscores) is feature of node and is 💥ALWAYS EQ
 
 */
 
+/*
+--------------- 🟨 MORGAN 🟨 ---------------
+https://github.com/stillmattwest/node_lessons_2021/blob/master/logging_and_routing.md
 
+Remember the flow of an Express application:
+   👉🏻 Clent Request => middleware stack => server response
+
+Morgan does not alter anything, it only logs to the console:
+
+   GET /home 200 11.690 ms - 291
+   GET /style.css 200 2.906 ms - 235
+   GET /client.js 200 2.070 ms - 39
+
+👉🏻 If you haven't cleared your cache recently you might see 304 responses instead of 200. An HTTP 👀304 response just means the client already has the resource cached, so no change is necessary. It's basically a redirect to a locally cached resource.
+
+   GET /home 304 4.025 ms - -
+   GET /style.css 304 5.881 ms - -
+   GET /client.js 304 5.856 ms - -
+
+-------------------------------------------------------------
+
+https://www.npmjs.com/package/morgan
+
+🔰 dev
+Concise output colored by response status for development use. The :status token will be colored green for success codes, red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for information codes.
+
+
+When a 'get' request to a route is processed, Express will go down the middleware stack from top to bottom. If it runs into an app.use it will apply the middleware regardless of route. This is how we implement 📍logging.
+
+If it runs into an app.get it will only apply the middleware if the route in the request matches the route specified in the method. This is why a request to http://localhost:3000 does not get served our static HTML file, but a request to http://localhost:3000/home does. When 'req' matches a route, the callback runs.
+
+Express Apps typically are only a single line of code.
+
+*/
 
