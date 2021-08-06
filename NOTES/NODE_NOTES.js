@@ -190,3 +190,27 @@ Express Apps typically are only a single line of code.
 
 */
 
+// --------------- 🟨 MVC PATTERN 🟨 ---------------
+/*
+https://github.com/stillmattwest/node_lessons_2021/blob/master/the_mvc_pattern_part_01.md
+
+The MVC (Model - View - Controller) Pattern is a design pattern that provides structure to web code.
+
+   - MODEL is code that talks to the database.
+   - VIEW is what the user sees and it handles dynamic code to view in the UI.
+   - CONTROLLER works to move data to and from 'model' and 'view'.
+
+🔰 CONTROLLERS
+   🔹 CONTROLLERS are simply JavaScript functions.
+   🔹 Nodes 'export' and 'require' commands create modules.
+   🔹 MODULES are part of Node.
+      - Nodes MODULE system comes from the 'common.js' standard which defines JavaScript patterns.
+   👉🏻 SEE 'myFirstControl.js'
+
+🔰 MODELS
+   🔹 The 'MODEL' talks to the controller.
+   👉🏻 SEE 'myFirstModel.js'
+
+
+
+*/

@@ -7,6 +7,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const morgan = require('morgan');
+const myFirstController = require('./controllers/myFirstController');
 
 app.use(morgan('dev'));
 
@@ -20,6 +21,9 @@ app.use((req, res, next) => {
 app.get("/home", (req, res) => {
   res.sendFile(__dirname + "/public/home.html")
 });
+
+// 🔸 ROUTE for 'myFirstController'
+app.get("/firstController", myFirstController.firstController);
 
 app.get("/", (req, res) => {
   res.send("Hello Express!")
